@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class LoggingController {
 
     @GetMapping("/logging")
-    public ResponseEntity<?> writeLogging() {
+    public ResponseEntity writeLogging() {
         String body = "Write Log";
         log.info(body);
         log.warn(body);
@@ -25,14 +25,11 @@ public class LoggingController {
     }
 
     @GetMapping("/exception")
-    public ResponseEntity<?> exeception() {
-        String body = "Exception";
+    public ResponseEntity<String> exeception() {
         try {
             throw new RuntimeException("Morris Throw Exception ");
         }catch(Exception exception) {
-            String errorStack = Arrays.stream(exception.getStackTrace()).map((e) -> {
-                return e.toString();
-            }).collect(Collectors.joining("\\r\\n"));
+            String errorStack = Arrays.stream(exception.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.joining("\\r\\n"));
             log.error("Morris ExceptionMsg :"+exception.getMessage()+", MorrisExceptionStack : "+errorStack);
             return new ResponseEntity( exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
