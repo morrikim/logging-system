@@ -18,6 +18,18 @@ docker image 생성
 <br>
 ` docker build -t morris-springboot .`
 
+<br>
+docker iamge 이름 변경
+<br>
+`docker image tag [기존의 이미지명]:[기존의 태그명]  [새로운 이미지명]:[새로운 태그명]`
+<br>
+
+docker 실행
+<br>
+`docker run -p 8080:8080 morriskim/morris-springboot:0.1`
+
+
+
 docker build option 
 <br>
 `Usage:  docker build [OPTIONS] PATH | URL | -`
@@ -43,5 +55,4 @@ Options:
       --ssh stringArray         SSH agent socket or keys to expose to the build (only if BuildKit enabled) (format: default|<id>[=<socket>|<key>[,<key>]])
   -t, --tag list                Name and optionally a tag in the 'name:tag' format
       --target string           Set the target build stage to build.
-
 ``` 

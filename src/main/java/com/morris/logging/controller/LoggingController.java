@@ -13,6 +13,11 @@ import java.util.stream.Collectors;
 @Slf4j
 public class LoggingController {
 
+    @GetMapping("/")
+    public String mainPage() {
+        return "Hello Logging Main Page";
+    }
+
     @GetMapping("/logging")
     public ResponseEntity writeLogging() {
         String body = "Write Log";
