@@ -21,11 +21,11 @@ public class LoggingController {
     @GetMapping("/logging")
     public ResponseEntity writeLogging() {
         String body = "Write Log";
-        log.info(body);
-        log.warn(body);
-        log.error(body);
-        log.debug(body);
-        log.trace(body);
+        log.info(body+"Info");
+        log.warn(body+"Warn");
+        log.error(body+"Error");
+        log.debug(body+"Debugger");
+        log.trace(body+"trace");
         return new ResponseEntity( body,HttpStatus.OK);
     }
 

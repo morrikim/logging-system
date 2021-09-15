@@ -4,7 +4,7 @@
     <!-- console appender-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{36} - %msg%n</Pattern>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread][%mdc] %-5level %logger{36} - %msg%n</Pattern>
         </layout>
     </appender>
     <!--file appender-->
@@ -15,6 +15,7 @@
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
                 <timestampFormat>yyyy-MM-dd HH:mm:ss</timestampFormat>
+                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter"></jsonFormatter>
                 <appendLineSeparator>true</appendLineSeparator>
             </layout>
         </encoder>
